@@ -31,22 +31,91 @@
             transition: all 0.5s ease;
         }
         
-        body.dark-mode {
-            background-color: #000;
-            color: white;
+        /* Maths Support Gaming Platform Styles */
+        .maths-support-mode {
+            background: linear-gradient(135deg, #9b27ca, #f92121) !important;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
         }
         
+        .maths-support-mode header {
+            background: transparent !important;
+            padding: 20px 0;
+        }
+        
+        .maths-support-mode .logo {
+            font-size: 86px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #f12711, #f5af19, #4facfe, #00f2fe);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: colorChange 5s ease infinite;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            background-size: 400% 400%;
+        }
+        
+        @keyframes colorChange {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .maths-support-main {
+            display: none;
+            width: 100%;
+        }
+        
+        .search-container {
+            max-width: 600px;
+            margin: 1rem auto;
+            display: flex;
+            gap: 10px;
+            padding: 0 1.5rem;
+        }
+        
+        #search-input {
+            flex: 1;
+            padding: 0.8rem 1.2rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        #search-input:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+        }
+        
+        #search-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 0.8rem 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        #search-btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+        }
+        
+        /* Original Maths Mind Styles */
         header {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
             padding: 1.5rem;
             text-align: center;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transition: all 0.5s ease;
-        }
-        
-        body.dark-mode header {
-            background: linear-gradient(135deg, #9b27ca, #f92121);
         }
         
         .logo {
@@ -77,11 +146,6 @@
             background-color: white;
             padding: 1rem;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            transition: all 0.5s ease;
-        }
-        
-        body.dark-mode nav {
-            background-color: #111;
         }
         
         .nav-container {
@@ -107,11 +171,6 @@
             gap: 8px;
         }
         
-        body.dark-mode .nav-btn {
-            background-color: #222;
-            color: white;
-        }
-        
         .nav-btn:hover, .nav-btn.active {
             background-color: var(--primary);
             color: white;
@@ -131,12 +190,6 @@
             padding: 2rem;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             margin-bottom: 2rem;
-            transition: all 0.5s ease;
-        }
-        
-        body.dark-mode .section {
-            background-color: #111;
-            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.05);
         }
         
         .section.active {
@@ -154,12 +207,6 @@
             margin-bottom: 1.5rem;
             padding-bottom: 0.5rem;
             border-bottom: 2px solid #f0f0f0;
-            transition: all 0.5s ease;
-        }
-        
-        body.dark-mode h2 {
-            color: #f12711;
-            border-bottom: 2px solid #333;
         }
         
         .topic-grid {
@@ -177,11 +224,6 @@
             border-left: 4px solid var(--primary);
         }
         
-        body.dark-mode .topic-card {
-            background-color: #222;
-            border-left: 4px solid #f12711;
-        }
-        
         .topic-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
@@ -193,22 +235,12 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            transition: all 0.5s ease;
-        }
-        
-        body.dark-mode .topic-card h3 {
-            color: #f5af19;
         }
         
         .topic-card p {
             color: #555;
             font-size: 0.95rem;
             margin-bottom: 1rem;
-            transition: all 0.5s ease;
-        }
-        
-        body.dark-mode .topic-card p {
-            color: #ccc;
         }
         
         .btn {
@@ -234,11 +266,6 @@
             border-radius: 10px;
             padding: 1.5rem;
             margin-top: 1.5rem;
-            transition: all 0.5s ease;
-        }
-        
-        body.dark-mode .quiz-container {
-            background-color: #1a1a1a;
         }
         
         .question {
@@ -259,11 +286,6 @@
             cursor: pointer;
             transition: all 0.2s ease;
             border: 2px solid #e0e0e0;
-        }
-        
-        body.dark-mode .option {
-            background-color: #222;
-            border: 2px solid #333;
         }
         
         .option:hover {
@@ -353,11 +375,6 @@
             text-align: center;
             padding: 2rem;
             margin-top: 3rem;
-            transition: all 0.5s ease;
-        }
-        
-        body.dark-mode footer {
-            background-color: #000;
         }
         
         .footer-content {
@@ -383,83 +400,6 @@
             transform: translateY(-3px);
         }
         
-        /* Search Bar Styles */
-        .search-container {
-            max-width: 600px;
-            margin: 1rem auto;
-            display: flex;
-            gap: 10px;
-            padding: 0 1.5rem;
-        }
-        
-        #search-input {
-            flex: 1;
-            padding: 0.8rem 1.2rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 50px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-        
-        #search-input:focus {
-            border-color: var(--primary);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
-        }
-        
-        body.dark-mode #search-input {
-            background-color: #222;
-            border-color: #444;
-            color: white;
-        }
-        
-        #search-btn {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            padding: 0.8rem 1.5rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        #search-btn:hover {
-            background-color: var(--secondary);
-            transform: translateY(-2px);
-        }
-        
-        /* Low Taper Fade Styles */
-        .low-taper-fade-mode {
-            background: linear-gradient(135deg, #9b27ca, #f92121) !important;
-            min-height: 100vh;
-        }
-        
-        .low-taper-fade-mode header {
-            background: transparent !important;
-        }
-        
-        .low-taper-fade-mode .logo {
-            font-size: 86px;
-            font-weight: bold;
-            background: linear-gradient(135deg, #f12711, #f5af19, #4facfe, #00f2fe);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            animation: colorChange 5s ease infinite;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
-            background-size: 400% 400%;
-        }
-        
-        @keyframes colorChange {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
         @media (max-width: 768px) {
             .options {
                 grid-template-columns: 1fr;
@@ -479,297 +419,591 @@
                 max-width: 300px;
                 justify-content: center;
             }
+            
+            .maths-support-mode .logo {
+                font-size: 60px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .maths-support-mode .logo {
+                font-size: 40px;
+            }
+        }
+        
+        /* Maths Support Specific Styles */
+        .maths-support-section {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .maths-support-search {
+            width: 80%;
+            max-width: 600px;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+        
+        .maths-support-search input {
+            width: 100%;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 18px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .maths-support-search input:focus {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            width: 80%;
+        }
+        
+        .category-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .category-btn:hover, .category-btn.active {
+            background-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-3px);
+        }
+        
+        #game-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            width: 90%;
+            max-width: 1200px;
+            margin-bottom: 20px;
+        }
+        
+        #game-buttons button {
+            padding: 20px;
+            height: 120px;
+            font-size: 18px;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        #game-buttons button:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        #game-buttons button .bg-layer {
+            height: 100%;
+            width: 300%;
+            position: absolute;
+            left: -100%;
+            top: 0;
+            background: linear-gradient(135deg, #9b27ca, #d33639, #9b27ca, #d33639);
+            transition: all 0.4s ease;
+            z-index: 1;
+        }
+        
+        #game-buttons button:hover .bg-layer {
+            left: 0;
+        }
+        
+        #game-buttons button span {
+            position: relative;
+            z-index: 2;
+        }
+        
+        #game-buttons button:nth-child(1) { background-color: #f12711; }
+        #game-buttons button:nth-child(2) { background-color: #f5af19; }
+        #game-buttons button:nth-child(3) { background-color: #4facfe; }
+        #game-buttons button:nth-child(4) { background-color: #00f2fe; }
+        #game-buttons button:nth-child(5) { background-color: #9b27ca; }
+        #game-buttons button:nth-child(6) { background-color: #ff8c00; }
+        #game-buttons button:nth-child(7) { background-color: #32cd32; }
+        #game-buttons button:nth-child(8) { background-color: #ff1493; }
+        #game-buttons button:nth-child(9) { background-color: #8a2be2; }
+        #game-buttons button:nth-child(10) { background-color: #ff6347; }
+        #game-buttons button:nth-child(11) { background-color: #20b2aa; }
+        #game-buttons button:nth-child(12) { background-color: #ff69b4; }
+        #game-buttons button:nth-child(13) { background-color: #7fff00; }
+        #game-buttons button:nth-child(14) { background-color: #ff4500; }
+        #game-buttons button:nth-child(15) { background-color: #8b0000; }
+        #game-buttons button:nth-child(16) { background-color: #8a2be2; }
+        #game-buttons button:nth-child(17) { background-color: #f5af19; }
+        #game-buttons button:nth-child(18) { background-color: #ff1493; }
+        #game-buttons button:nth-child(19) { background-color: #8b0000; }
+        #game-buttons button:nth-child(20) { background-color: #ff6347; }
+        #game-buttons button:nth-child(21) { background-color: #f12711; }
+        #game-buttons button:nth-child(22) { background-color: #4facfe; }
+        #game-buttons button:nth-child(23) { background-color: #00f2fe; }
+        #game-buttons button:nth-child(24) { background-color: #A2CAF2; }
+        #game-buttons button:nth-child(25) { background-color: #60ffc8; }
+        #game-buttons button:nth-child(26) { background-color: #ee063e; }
+        #game-buttons button:nth-child(27) { background-color: #eeb206; }
+        #game-buttons button:nth-child(28) { background-color: #32cd32; }
+        #game-buttons button:nth-child(29) { background-color: #20b2aa; }
+        
+        #control-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            width: 100%;
+            justify-content: center;
+        }
+        
+        #control-buttons button {
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        #control-buttons button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        #control-buttons button span {
+            position: relative;
+            z-index: 2;
+        }
+        
+        #control-buttons button .bg-layer {
+            height: 100%;
+            width: 300%;
+            position: absolute;
+            left: -100%;
+            top: 0;
+            background: linear-gradient(135deg, #9b27ca, #d33639, #9b27ca, #d33639);
+            transition: all 0.4s ease;
+            z-index: 1;
+        }
+        
+        #control-buttons button:hover .bg-layer {
+            left: 0;
+        }
+        
+        #control-buttons button:nth-child(1) { background-color: #f12711; }
+        #control-buttons button:nth-child(2) { background-color: #4facfe; }
+        
+        #game-container {
+            width: 95%;
+            max-width: 1300px;
+            margin: 20px auto;
+            display: none;
+        }
+        
+        #iframeContainer iframe {
+            width: 100%;
+            height: 75vh;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            background-color: white;
+        }
+        
+        .loader {
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 5px solid #fff;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+            display: none;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        #backToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        #backToTop.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        #backToTop:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-3px);
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <i class="fas fa-brain"></i>
-            <h1>Maths Mind</h1>
-        </div>
-        <p class="tagline">Your comprehensive GCSE Maths learning hub for Year 10 and 11 students</p>
-    </header>
-    
-    <div class="search-container">
-        <input type="text" id="search-input" placeholder="Search for topics, resources...">
-        <button id="search-btn"><i class="fas fa-search"></i> Search</button>
-    </div>
-    
-    <nav>
-        <div class="nav-container">
-            <button class="nav-btn active" data-target="home"><i class="fas fa-home"></i> Home</button>
-            <button class="nav-btn" data-target="topics"><i class="fas fa-book"></i> Topics</button>
-            <button class="nav-btn" data-target="quizzes"><i class="fas fa-question-circle"></i> Quizzes</button>
-            <button class="nav-btn" data-target="resources"><i class="fas fa-download"></i> Resources</button>
-            <button class="nav-btn" data-target="calculator"><i class="fas fa-calculator"></i> Calculator</button>
-        </div>
-    </nav>
-    
-    <main>
-        <section id="home" class="section active">
-            <h2>Welcome to Maths Mind</h2>
-            <p>Your one-stop destination for mastering GCSE Mathematics. Whether you're in Year 10 just starting your journey or in Year 11 preparing for exams, we've got everything you need to succeed.</p>
-            
-            <div class="topic-grid">
-                <div class="topic-card">
-                    <h3><i class="fas fa-chart-line"></i> Progress Tracking</h3>
-                    <p>Monitor your learning journey with our progress tracking tools. Identify strengths and areas for improvement.</p>
-                    <a href="#" class="btn">View Progress</a>
-                </div>
-                
-                <div class="topic-card">
-                    <h3><i class="fas fa-trophy"></i> Exam Preparation</h3>
-                    <p>Access past papers, mark schemes, and examiner reports to prepare effectively for your exams.</p>
-                    <a href="#" class="btn">Practice Papers</a>
-                </div>
-                
-                <div class="topic-card">
-                    <h3><i class="fas fa-users"></i> Study Groups</h3>
-                    <p>Join virtual study groups to collaborate with peers and learn together in a supportive environment.</p>
-                    <a href="#" class="btn">Join Now</a>
-                </div>
+    <!-- Maths Mind Content -->
+    <div id="maths-mind-content">
+        <header>
+            <div class="logo">
+                <i class="fas fa-brain"></i>
+                <h1>Maths Mind</h1>
             </div>
-            
-            <div style="margin-top: 2rem; background-color: #e8f4ff; padding: 1.5rem; border-radius: 10px;">
-                <h3>Upcoming Features</h3>
-                <p>We're constantly improving Maths Mind. Look out for these upcoming features:</p>
-                <ul style="margin-top: 1rem; margin-left: 1.5rem;">
-                    <li>Video tutorials for all topics</li>
-                    <li>Interactive 3D geometry tools</li>
-                    <li>Personalized revision plans</li>
-                    <li>Mobile app for learning on the go</li>
-                </ul>
-            </div>
-        </section>
+            <p class="tagline">Your comprehensive GCSE Maths learning hub for Year 10 and 11 students</p>
+        </header>
         
-        <section id="topics" class="section">
-            <h2>GCSE Maths Topics</h2>
-            <p>Browse our comprehensive collection of GCSE Maths topics. Each topic includes explanations, examples, and practice questions.</p>
-            
-            <div class="topic-grid">
-                <div class="topic-card">
-                    <h3><i class="fas fa-calculator"></i> Number</h3>
-                    <p>Operations, fractions, decimals, percentages, factors, multiples, and primes.</p>
-                    <a href="#" class="btn">Explore</a>
-                </div>
-                
-                <div class="topic-card">
-                    <h3><i class="fas fa-shapes"></i> Algebra</h3>
-                    <p>Expressions, equations, formulae, sequences, graphs, and inequalities.</p>
-                    <a href="#" class="btn">Explore</a>
-                </div>
-                
-                <div class="topic-card">
-                    <h3><i class="fas fa-ruler-combined"></i> Ratio & Proportion</h3>
-                    <p>Ratio, proportion, rates of change, and direct/inverse proportion.</p>
-                    <a href="#" class="btn">Explore</a>
-                </div>
-                
-                <div class="topic-card">
-                    <h3><i class="fas fa-chart-pie"></i> Geometry & Measures</h3>
-                    <p>Properties of shapes, angles, transformations, area, volume, and Pythagoras.</p>
-                    <a href="#" class="btn">Explore</a>
-                </div>
-                
-                <div class="topic-card">
-                    <h3><i class="fas fa-chart-bar"></i> Statistics</h3>
-                    <p>Data collection, averages, spread, graphs, charts, and probability.</p>
-                    <a href="#" class="btn">Explore</a>
-                </div>
-                
-                <div class="topic-card">
-                    <h3><i class="fas fa-infinity"></i> Probability</h3>
-                    <p>Calculating probabilities, tree diagrams, Venn diagrams, and combined events.</p>
-                    <a href="#" class="btn">Explore</a>
-                </div>
-            </div>
-        </section>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search for topics, resources...">
+            <button id="search-btn"><i class="fas fa-search"></i> Search</button>
+        </div>
         
-        <section id="quizzes" class="section">
-            <h2>Test Your Knowledge</h2>
-            <p>Practice with our interactive quizzes. Get immediate feedback and explanations for each question.</p>
-            
-            <div class="quiz-container">
-                <div class="question">
-                    <h3>Question 1: Algebra</h3>
-                    <p>Solve for x: 3x + 7 = 22</p>
-                    
-                    <div class="options">
-                        <div class="option" data-correct="true">x = 5</div>
-                        <div class="option">x = 6</div>
-                        <div class="option">x = 4</div>
-                        <div class="option">x = 7</div>
-                    </div>
-                    
-                    <div class="result correct">
-                        <strong>Correct!</strong> 3x + 7 = 22 → 3x = 15 → x = 5
-                    </div>
-                    
-                    <div class="result incorrect">
-                        <strong>Incorrect.</strong> The correct solution is: 3x + 7 = 22 → 3x = 15 → x = 5
-                    </div>
-                </div>
-                
-                <button class="btn" id="check-answer">Check Answer</button>
-                <button class="btn" id="next-question" style="display: none;">Next Question</button>
+        <nav>
+            <div class="nav-container">
+                <button class="nav-btn active" data-target="home"><i class="fas fa-home"></i> Home</button>
+                <button class="nav-btn" data-target="topics"><i class="fas fa-book"></i> Topics</button>
+                <button class="nav-btn" data-target="quizzes"><i class="fas fa-question-circle"></i> Quizzes</button>
+                <button class="nav-btn" data-target="resources"><i class="fas fa-download"></i> Resources</button>
+                <button class="nav-btn" data-target="calculator"><i class="fas fa-calculator"></i> Calculator</button>
             </div>
-            
-            <div style="margin-top: 2rem;">
-                <h3>More Quizzes</h3>
+        </nav>
+        
+        <main>
+            <section id="home" class="section active">
+                <h2>Welcome to Maths Mind</h2>
+                <p>Your one-stop destination for mastering GCSE Mathematics. Whether you're in Year 10 just starting your journey or in Year 11 preparing for exams, we've got everything you need to succeed.</p>
+                
                 <div class="topic-grid">
                     <div class="topic-card">
-                        <h3><i class="fas fa-calculator"></i> Number Quiz</h3>
-                        <p>Test your skills with fractions, decimals, and percentages.</p>
-                        <a href="#" class="btn">Start Quiz</a>
+                        <h3><i class="fas fa-chart-line"></i> Progress Tracking</h3>
+                        <p>Monitor your learning journey with our progress tracking tools. Identify strengths and areas for improvement.</p>
+                        <a href="#" class="btn">View Progress</a>
                     </div>
                     
                     <div class="topic-card">
-                        <h3><i class="fas fa-shapes"></i> Algebra Quiz</h3>
-                        <p>Challenge yourself with equations, expressions, and sequences.</p>
-                        <a href="#" class="btn">Start Quiz</a>
+                        <h3><i class="fas fa-trophy"></i> Exam Preparation</h3>
+                        <p>Access past papers, mark schemes, and examiner reports to prepare effectively for your exams.</p>
+                        <a href="#" class="btn">Practice Papers</a>
                     </div>
                     
                     <div class="topic-card">
-                        <h3><i class="fas fa-chart-pie"></i> Geometry Quiz</h3>
-                        <p>Test your knowledge of shapes, angles, and theorems.</p>
-                        <a href="#" class="btn">Start Quiz</a>
+                        <h3><i class="fas fa-users"></i> Study Groups</h3>
+                        <p>Join virtual study groups to collaborate with peers and learn together in a supportive environment.</p>
+                        <a href="#" class="btn">Join Now</a>
                     </div>
                 </div>
-            </div>
-        </section>
+                
+                <div style="margin-top: 2rem; background-color: #e8f4ff; padding: 1.5rem; border-radius: 10px;">
+                    <h3>Upcoming Features</h3>
+                    <p>We're constantly improving Maths Mind. Look out for these upcoming features:</p>
+                    <ul style="margin-top: 1rem; margin-left: 1.5rem;">
+                        <li>Video tutorials for all topics</li>
+                        <li>Interactive 3D geometry tools</li>
+                        <li>Personalized revision plans</li>
+                        <li>Mobile app for learning on the go</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section id="topics" class="section">
+                <h2>GCSE Maths Topics</h2>
+                <p>Browse our comprehensive collection of GCSE Maths topics. Each topic includes explanations, examples, and practice questions.</p>
+                
+                <div class="topic-grid">
+                    <div class="topic-card">
+                        <h3><i class="fas fa-calculator"></i> Number</h3>
+                        <p>Operations, fractions, decimals, percentages, factors, multiples, and primes.</p>
+                        <a href="#" class="btn">Explore</a>
+                    </div>
+                    
+                    <div class="topic-card">
+                        <h3><i class="fas fa-shapes"></i> Algebra</h3>
+                        <p>Expressions, equations, formulae, sequences, graphs, and inequalities.</p>
+                        <a href="#" class="btn">Explore</a>
+                    </div>
+                    
+                    <div class="topic-card">
+                        <h3><i class="fas fa-ruler-combined"></i> Ratio & Proportion</h3>
+                        <p>Ratio, proportion, rates of change, and direct/inverse proportion.</p>
+                        <a href="#" class="btn">Explore</a>
+                    </div>
+                    
+                    <div class="topic-card">
+                        <h3><i class="fas fa-chart-pie"></i> Geometry & Measures</h3>
+                        <p>Properties of shapes, angles, transformations, area, volume, and Pythagoras.</p>
+                        <a href="#" class="btn">Explore</a>
+                    </div>
+                    
+                    <div class="topic-card">
+                        <h3><i class="fas fa-chart-bar"></i> Statistics</h3>
+                        <p>Data collection, averages, spread, graphs, charts, and probability.</p>
+                        <a href="#" class="btn">Explore</a>
+                    </div>
+                    
+                    <div class="topic-card">
+                        <h3><i class="fas fa-infinity"></i> Probability</h3>
+                        <p>Calculating probabilities, tree diagrams, Venn diagrams, and combined events.</p>
+                        <a href="#" class="btn">Explore</a>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="quizzes" class="section">
+                <h2>Test Your Knowledge</h2>
+                <p>Practice with our interactive quizzes. Get immediate feedback and explanations for each question.</p>
+                
+                <div class="quiz-container">
+                    <div class="question">
+                        <h3>Question 1: Algebra</h3>
+                        <p>Solve for x: 3x + 7 = 22</p>
+                        
+                        <div class="options">
+                            <div class="option" data-correct="true">x = 5</div>
+                            <div class="option">x = 6</div>
+                            <div class="option">x = 4</div>
+                            <div class="option">x = 7</div>
+                        </div>
+                        
+                        <div class="result correct">
+                            <strong>Correct!</strong> 3x + 7 = 22 → 3x = 15 → x = 5
+                        </div>
+                        
+                        <div class="result incorrect">
+                            <strong>Incorrect.</strong> The correct solution is: 3x + 7 = 22 → 3x = 15 → x = 5
+                        </div>
+                    </div>
+                    
+                    <button class="btn" id="check-answer">Check Answer</button>
+                    <button class="btn" id="next-question" style="display: none;">Next Question</button>
+                </div>
+                
+                <div style="margin-top: 2rem;">
+                    <h3>More Quizzes</h3>
+                    <div class="topic-grid">
+                        <div class="topic-card">
+                            <h3><i class="fas fa-calculator"></i> Number Quiz</h3>
+                            <p>Test your skills with fractions, decimals, and percentages.</p>
+                            <a href="#" class="btn">Start Quiz</a>
+                        </div>
+                        
+                        <div class="topic-card">
+                            <h3><i class="fas fa-shapes"></i> Algebra Quiz</h3>
+                            <p>Challenge yourself with equations, expressions, and sequences.</p>
+                            <a href="#" class="btn">Start Quiz</a>
+                        </div>
+                        
+                        <div class="topic-card">
+                            <h3><i class="fas fa-chart-pie"></i> Geometry Quiz</h3>
+                            <p>Test your knowledge of shapes, angles, and theorems.</p>
+                            <a href="#" class="btn">Start Quiz</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="resources" class="section">
+                <h2>Learning Resources</h2>
+                <p>Download worksheets, formula sheets, and revision guides to support your learning.</p>
+                
+                <div class="topic-grid">
+                    <div class="topic-card">
+                        <h3><i class="fas fa-file-pdf"></i> Formula Sheet</h3>
+                        <p>All the essential formulas you need for your GCSE Maths exams.</p>
+                        <a href="#" class="btn">Download</a>
+                    </div>
+                    
+                    <div class="topic-card">
+                        <h3><i class="fas fa-file-alt"></i> Past Papers</h3>
+                        <p>Practice with real exam papers from previous years.</p>
+                        <a href="#" class="btn">Download</a>
+                    </div>
+                    
+                    <div class="topic-card">
+                        <h3><i class="fas fa-book"></i> Revision Guide</h3>
+                        <p>Comprehensive revision notes for all GCSE Maths topics.</p>
+                        <a href="#" class="btn">Download</a>
+                    </div>
+                    
+                    <div class="topic-card">
+                        <h3><i class="fas fa-video"></i> Video Tutorials</h3>
+                        <p>Step-by-step video explanations for difficult concepts.</p>
+                        <a href="#" class="btn">Watch Now</a>
+                    </div>
+                    
+                    <div class="topic-card">
+                        <h3><i class="fas fa-tasks"></i> Worksheets</h3>
+                        <p>Practice problems with increasing difficulty levels.</p>
+                        <a href="#" class="btn">Download</a>
+                    </div>
+                    
+                    <div class="topic-card">
+                        <h3><i class="fas fa-chalkboard-teacher"></i> Lesson Plans</h3>
+                        <p>Structured learning plans for self-study or tutoring.</p>
+                        <a href="#" class="btn">Download</a>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="calculator" class="section">
+                <h2>Scientific Calculator</h2>
+                <p>Use our built-in calculator for your maths problems. Supports basic operations and common functions.</p>
+                
+                <div class="calculator">
+                    <div class="calculator-display" id="calc-display">0</div>
+                    <div class="calculator-buttons">
+                        <button class="calc-btn clear" onclick="clearDisplay()">C</button>
+                        <button class="calc-btn operator" onclick="appendToDisplay('(')">(</button>
+                        <button class="calc-btn operator" onclick="appendToDisplay(')')">)</button>
+                        <button class="calc-btn operator" onclick="appendToDisplay('/')">/</button>
+                        
+                        <button class="calc-btn" onclick="appendToDisplay('7')">7</button>
+                        <button class="calc-btn" onclick="appendToDisplay('8')">8</button>
+                        <button class="calc-btn" onclick="appendToDisplay('9')">9</button>
+                        <button class="calc-btn operator" onclick="appendToDisplay('*')">×</button>
+                        
+                        <button class="calc-btn" onclick="appendToDisplay('4')">4</button>
+                        <button class="calc-btn" onclick="appendToDisplay('5')">5</button>
+                        <button class="calc-btn" onclick="appendToDisplay('6')">6</button>
+                        <button class="calc-btn operator" onclick="appendToDisplay('-')">-</button>
+                        
+                        <button class="calc-btn" onclick="appendToDisplay('1')">1</button>
+                        <button class="calc-btn" onclick="appendToDisplay('2')">2</button>
+                        <button class="calc-btn" onclick="appendToDisplay('3')">3</button>
+                        <button class="calc-btn operator" onclick="appendToDisplay('+')">+</button>
+                        
+                        <button class="calc-btn" onclick="appendToDisplay('0')">0</button>
+                        <button class="calc-btn" onclick="appendToDisplay('.')">.</button>
+                        <button class="calc-btn" onclick="backspace()">⌫</button>
+                        <button class="calc-btn equals" onclick="calculate()">=</button>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2rem;">
+                    <h3>Calculator Tips</h3>
+                    <ul style="margin-top: 1rem; margin-left: 1.5rem;">
+                        <li>Use brackets to control the order of operations</li>
+                        <li>For percentages, multiply by the percentage and divide by 100</li>
+                        <li>Remember to use the decimal point for non-whole numbers</li>
+                        <li>Clear the display with 'C' if you make a mistake</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
         
-        <section id="resources" class="section">
-            <h2>Learning Resources</h2>
-            <p>Download worksheets, formula sheets, and revision guides to support your learning.</p>
-            
-            <div class="topic-grid">
-                <div class="topic-card">
-                    <h3><i class="fas fa-file-pdf"></i> Formula Sheet</h3>
-                    <p>All the essential formulas you need for your GCSE Maths exams.</p>
-                    <a href="#" class="btn">Download</a>
+        <footer>
+            <div class="footer-content">
+                <h3>Maths Mind</h3>
+                <p>Empowering GCSE students to excel in mathematics</p>
+                
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
                 
-                <div class="topic-card">
-                    <h3><i class="fas fa-file-alt"></i> Past Papers</h3>
-                    <p>Practice with real exam papers from previous years.</p>
-                    <a href="#" class="btn">Download</a>
-                </div>
-                
-                <div class="topic-card">
-                    <h3><i class="fas fa-book"></i> Revision Guide</h3>
-                    <p>Comprehensive revision notes for all GCSE Maths topics.</p>
-                    <a href="#" class="btn">Download</a>
-                </div>
-                
-                <div class="topic-card">
-                    <h3><i class="fas fa-video"></i> Video Tutorials</h3>
-                    <p>Step-by-step video explanations for difficult concepts.</p>
-                    <a href="#" class="btn">Watch Now</a>
-                </div>
-                
-                <div class="topic-card">
-                    <h3><i class="fas fa-tasks"></i> Worksheets</h3>
-                    <p>Practice problems with increasing difficulty levels.</p>
-                    <a href="#" class="btn">Download</a>
-                </div>
-                
-                <div class="topic-card">
-                    <h3><i class="fas fa-chalkboard-teacher"></i> Lesson Plans</h3>
-                    <p>Structured learning plans for self-study or tutoring.</p>
-                    <a href="#" class="btn">Download</a>
-                </div>
+                <p>&copy; 2023 Maths Mind. All rights reserved.</p>
             </div>
-        </section>
-        
-        <section id="calculator" class="section">
-            <h2>Scientific Calculator</h2>
-            <p>Use our built-in calculator for your maths problems. Supports basic operations and common functions.</p>
-            
-            <div class="calculator">
-                <div class="calculator-display" id="calc-display">0</div>
-                <div class="calculator-buttons">
-                    <button class="calc-btn clear" onclick="clearDisplay()">C</button>
-                    <button class="calc-btn operator" onclick="appendToDisplay('(')">(</button>
-                    <button class="calc-btn operator" onclick="appendToDisplay(')')">)</button>
-                    <button class="calc-btn operator" onclick="appendToDisplay('/')">/</button>
-                    
-                    <button class="calc-btn" onclick="appendToDisplay('7')">7</button>
-                    <button class="calc-btn" onclick="appendToDisplay('8')">8</button>
-                    <button class="calc-btn" onclick="appendToDisplay('9')">9</button>
-                    <button class="calc-btn operator" onclick="appendToDisplay('*')">×</button>
-                    
-                    <button class="calc-btn" onclick="appendToDisplay('4')">4</button>
-                    <button class="calc-btn" onclick="appendToDisplay('5')">5</button>
-                    <button class="calc-btn" onclick="appendToDisplay('6')">6</button>
-                    <button class="calc-btn operator" onclick="appendToDisplay('-')">-</button>
-                    
-                    <button class="calc-btn" onclick="appendToDisplay('1')">1</button>
-                    <button class="calc-btn" onclick="appendToDisplay('2')">2</button>
-                    <button class="calc-btn" onclick="appendToDisplay('3')">3</button>
-                    <button class="calc-btn operator" onclick="appendToDisplay('+')">+</button>
-                    
-                    <button class="calc-btn" onclick="appendToDisplay('0')">0</button>
-                    <button class="calc-btn" onclick="appendToDisplay('.')">.</button>
-                    <button class="calc-btn" onclick="backspace()">⌫</button>
-                    <button class="calc-btn equals" onclick="calculate()">=</button>
-                </div>
-            </div>
-            
-            <div style="margin-top: 2rem;">
-                <h3>Calculator Tips</h3>
-                <ul style="margin-top: 1rem; margin-left: 1.5rem;">
-                    <li>Use brackets to control the order of operations</li>
-                    <li>For percentages, multiply by the percentage and divide by 100</li>
-                    <li>Remember to use the decimal point for non-whole numbers</li>
-                    <li>Clear the display with 'C' if you make a mistake</li>
-                </ul>
-            </div>
-        </section>
-    </main>
+        </footer>
+    </div>
     
-    <footer>
-        <div class="footer-content">
-            <h3>Maths Mind</h3>
-            <p>Empowering GCSE students to excel in mathematics</p>
-            
-            <div class="social-links">
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
+    <!-- Maths Support Gaming Platform (Hidden by default) -->
+    <div id="maths-support-content" class="maths-support-main">
+        <header>
+            <div id="logo-container">
+                <h1 class="logo">Maths Support</h1>
             </div>
-            
-            <p>&copy; 2023 Maths Mind. All rights reserved.</p>
+        </header>
+        <section class="maths-support-section">
+            <div class="maths-support-search">
+                <input type="text" id="game-search-input" placeholder="Search games...">
+            </div>
+            <div class="categories">
+                <button class="category-btn active" data-category="all">All Games</button>
+                <button class="category-btn" data-category="action">Action</button>
+                <button class="category-btn" data-category="io">.io Games</button>
+                <button class="category-btn" data-category="casual">Casual</button>
+                <button class="category-btn" data-category="classic">Classic</button>
+            </div>
+            <div class="loader" id="loader"></div>
+            <nav id="game-buttons">
+                <!-- Game buttons will be populated by JavaScript -->
+            </nav>
+        </section>
+        <div id="game-container">
+            <div id="iframeContainer"></div>
+            <div id="control-buttons">
+                <button onclick="toggleFullscreen()"><div class="bg-layer"></div><span>Fullscreen</span></button>
+                <button onclick="exitGame()"><div class="bg-layer"></div><span>Exit</span></button>
+            </div>
         </div>
-    </footer>
+        <div id="backToTop">↑</div>
+        <footer>
+            <p>© 2025 Maths Support - Educational Gaming</p>
+        </footer>
+    </div>
 
     <script>
-        // Navigation functionality
+        // Maths Mind functionality
         document.querySelectorAll('.nav-btn').forEach(button => {
             button.addEventListener('click', () => {
-                // Remove active class from all buttons and sections
                 document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
                 document.querySelectorAll('.section').forEach(section => section.classList.remove('active'));
                 
-                // Add active class to clicked button
                 button.classList.add('active');
-                
-                // Show corresponding section
                 const targetId = button.getAttribute('data-target');
                 document.getElementById(targetId).classList.add('active');
             });
         });
         
-        // Quiz functionality
         document.querySelectorAll('.option').forEach(option => {
             option.addEventListener('click', () => {
-                // Remove selected class from all options in this question
                 option.parentElement.querySelectorAll('.option').forEach(opt => {
                     opt.classList.remove('selected');
                 });
-                
-                // Add selected class to clicked option
                 option.classList.add('selected');
             });
         });
@@ -796,7 +1030,6 @@
                 selectedOption.style.borderColor = 'var(--danger)';
                 selectedOption.style.backgroundColor = 'rgba(220, 53, 69, 0.1)';
                 
-                // Highlight correct answer
                 const correctOption = document.querySelector('.option[data-correct="true"]');
                 correctOption.style.borderColor = 'var(--success)';
                 correctOption.style.backgroundColor = 'rgba(75, 181, 67, 0.1)';
@@ -853,7 +1086,6 @@
             updateDisplay();
         }
         
-        // Initialize display
         updateDisplay();
         
         // Search functionality
@@ -868,575 +1100,191 @@
             const searchTerm = document.getElementById('search-input').value.toLowerCase();
             
             if (searchTerm === 'low taper fade') {
-                // Apply the low taper fade transformation
-                document.body.classList.add('low-taper-fade-mode');
+                // Switch to Maths Support gaming platform
+                document.body.classList.add('maths-support-mode');
+                document.getElementById('maths-mind-content').style.display = 'none';
+                document.getElementById('maths-support-content').style.display = 'block';
                 
-                // Replace the content with the Maths Support gaming platform
-                document.body.innerHTML = `
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Maths Support - Educational gaming platform">
-    <title>Maths Support</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600;700&display=swap');
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Poppins", sans-serif;
-        }
-        body {
-            margin: 0;
-            background: linear-gradient(135deg, #9b27ca, #f92121);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-bottom: 30px;
-        }
-        header {
-            width: 100%;
-            text-align: center;
-            position: relative;
-            top: 0;
-            padding: 20px 0;
-            background: transparent;
-            z-index: 10;
-        }
-        .logo {
-            font-size: 86px;
-            font-weight: bold;
-            background: linear-gradient(135deg, #f12711, #f5af19, #4facfe, #00f2fe);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            animation: colorChange 5s ease infinite;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
-            background-size: 400% 400%;
-        }
-        @media (max-width: 768px) {
-            .logo {
-                font-size: 60px;
+                // Initialize the gaming platform
+                initializeMathsSupport();
+            } else {
+                // Regular search functionality
+                alert('Searching for: ' + searchTerm);
             }
         }
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 40px;
-            }
-        }
-        .main-section {
-            width: 100%;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            padding: 20px;
-            margin-top: 20px;
-        }
-        .search-container {
-            width: 80%;
-            max-width: 600px;
-            margin: 0 auto 20px;
-            position: relative;
-        }
-        #search-input {
-            width: 100%;
-            padding: 15px 20px;
-            border: none;
-            border-radius: 25px;
-            font-size: 18px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            outline: none;
-            transition: all 0.3s ease;
-        }
-        #search-input:focus {
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-        }
-        .categories {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
-            width: 80%;
-        }
-        .category-btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 20px;
-            background-color: rgba(255, 255, 255, 0.2);
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 600;
-        }
-        .category-btn:hover, .category-btn.active {
-            background-color: rgba(255, 255, 255, 0.4);
-            transform: translateY(-3px);
-        }
-        #game-buttons {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 15px;
-            width: 90%;
-            max-width: 1200px;
-            margin-bottom: 20px;
-        }
-        #game-buttons button {
-            padding: 20px;
-            height: 120px;
-            font-size: 18px;
-            border: none;
-            border-radius: 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            color: #fff;
-            position: relative;
-            overflow: hidden;
-            font-weight: bold;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-        #game-buttons button:hover {
-            transform: translateY(-5px) scale(1.03);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        #game-buttons button .bg-layer {
-            height: 100%;
-            width: 300%;
-            position: absolute;
-            left: -100%;
-            top: 0;
-            background: linear-gradient(135deg, #9b27ca, #d33639, #9b27ca, #d33639);
-            transition: all 0.4s ease;
-            z-index: 1;
-        }
-        #game-buttons button:hover .bg-layer {
-            left: 0;
-        }
-        #game-buttons button span {
-            position: relative;
-            z-index: 2;
-        }
-        #game-buttons button:nth-child(1) { background-color: #f12711; }
-        #game-buttons button:nth-child(2) { background-color: #f5af19; }
-        #game-buttons button:nth-child(3) { background-color: #4facfe; }
-        #game-buttons button:nth-child(4) { background-color: #00f2fe; }
-        #game-buttons button:nth-child(5) { background-color: #9b27ca; }
-        #game-buttons button:nth-child(6) { background-color: #ff8c00; }
-        #game-buttons button:nth-child(7) { background-color: #32cd32; }
-        #game-buttons button:nth-child(8) { background-color: #ff1493; }
-        #game-buttons button:nth-child(9) { background-color: #8a2be2; }
-        #game-buttons button:nth-child(10) { background-color: #ff6347; }
-        #game-buttons button:nth-child(11) { background-color: #20b2aa; }
-        #game-buttons button:nth-child(12) { background-color: #ff69b4; }
-        #game-buttons button:nth-child(13) { background-color: #7fff00; }
-        #game-buttons button:nth-child(14) { background-color: #ff4500; }
-        #game-buttons button:nth-child(15) { background-color: #8b0000; }
-        #game-buttons button:nth-child(16) { background-color: #8a2be2; }
-        #game-buttons button:nth-child(17) { background-color: #f5af19; }
-        #game-buttons button:nth-child(18) { background-color: #ff1493; }
-        #game-buttons button:nth-child(19) { background-color: #8b0000; }
-        #game-buttons button:nth-child(20) { background-color: #ff6347; }
-        #game-buttons button:nth-child(21) { background-color: #f12711; }
-        #game-buttons button:nth-child(22) { background-color: #4facfe; }
-        #game-buttons button:nth-child(23) { background-color: #00f2fe; }
-        #game-buttons button:nth-child(24) { background-color: #A2CAF2; }
-        #game-buttons button:nth-child(25) { background-color: #60ffc8; }
-        #game-buttons button:nth-child(26) { background-color: #ee063e; }
-        #game-buttons button:nth-child(27) { background-color: #eeb206; }
-        #game-buttons button:nth-child(28) { background-color: #32cd32; }
-        #game-buttons button:nth-child(29) { background-color: #20b2aa; }
-        #control-buttons {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-            width: 100%;
-            justify-content: center;
-        }
-        #control-buttons button {
-            padding: 15px 30px;
-            font-size: 18px;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            color: #fff;
-            position: relative;
-            overflow: hidden;
-            font-weight: bold;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-        }
-        #control-buttons button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-        }
-        #control-buttons button span {
-            position: relative;
-            z-index: 2;
-        }
-        #control-buttons button .bg-layer {
-            height: 100%;
-            width: 300%;
-            position: absolute;
-            left: -100%;
-            top: 0;
-            background: linear-gradient(135deg, #9b27ca, #d33639, #9b27ca, #d33639);
-            transition: all 0.4s ease;
-            z-index: 1;
-        }
-        #control-buttons button:hover .bg-layer {
-            left: 0;
-        }
-        #control-buttons button:nth-child(1) { background-color: #f12711; }
-        #control-buttons button:nth-child(2) { background-color: #4facfe; }
-        @keyframes colorChange {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        #logo-container {
-            text-align: center;
-            margin-top: 20px;
-            transition: opacity 0.3s ease;
-        }
-        @keyframes colorChange {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        #game-container {
-            width: 95%;
-            max-width: 1300px;
-            margin: 20px auto;
-            display: none;
-        }
-        #iframeContainer iframe {
-            width: 100%;
-            height: 75vh;
-            border: none;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            background-color: white;
-        }
-        .loader {
-            border: 5px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top: 5px solid #fff;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
-            display: none;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        footer {
-            margin-top: auto;
-            width: 100%;
-            padding: 20px 0;
-            text-align: center;
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 14px;
-        }
-        #backToTop {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.2);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            opacity: 0;
-            visibility: hidden;
-            color: white;
-            font-size: 24px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-        #backToTop.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-        #backToTop:hover {
-            background-color: rgba(255, 255, 255, 0.4);
-            transform: translateY(-3px);
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <div id="logo-container">
-            <h1 class="logo">Maths Support</h1>
-        </div>
-    </header>
-    <section class="main-section">
-        <div class="search-container">
-            <input type="text" id="search-input" placeholder="Search games...">
-        </div>
-        <div class="categories">
-            <button class="category-btn active" data-category="all">All Games</button>
-            <button class="category-btn" data-category="action">Action</button>
-            <button class="category-btn" data-category="io">.io Games</button>
-            <button class="category-btn" data-category="casual">Casual</button>
-            <button class="category-btn" data-category="classic">Classic</button>
-        </div>
-        <div class="loader" id="loader"></div>
-        <nav id="game-buttons">
-            <button class="btn red" data-category="io" onclick="showGame('1v1')"><div class="bg-layer"></div><span>1v1.lol</span></button>
-            <button class="btn blue" data-category="io" onclick="showGame('slither')"><div class="bg-layer"></div><span>Slither.io</span></button>
-            <button class="btn green" data-category="action" onclick="showGame('krunker')"><div class="bg-layer"></div><span>Krunker.io</span></button>
-            <button class="btn orange" data-category="action" onclick="showGame('Shell Shockers')"><div class="bg-layer"></div><span>Shell Shockers</span></button>
-            <button class="btn pink" data-category="action" onclick="showGame('Agar.io')"><div class="bg-layer"></div><span>Smash Karts</span></button>
-            <button class="btn cyan" data-category="io" onclick="showGame('ZombsRoyale')"><div class="bg-layer"></div><span>ZombsRoyale.io</span></button>
-            <button class="btn yellow" data-category="io" onclick="showGame('Paper.io')"><div class="bg-layer"></div><span>Openfront</span></button>
-            <button class="btn red" data-category="io" onclick="showGame('SuperHex.io')"><div class="bg-layer"></div><span>SuperHex.io</span></button>
-            <button class="btn blue" data-category="classic" onclick="showGame('Pacman')"><div class="bg-layer"></div><span>Pacman</span></button>
-            <button class="btn green" data-category="action" onclick="showGame('Tetris')"><div class="bg-layer"></div><span>Rocket Bot Royale</span></button>
-            <button class="btn teal" data-category="tools" onclick="showGame('Exam')"><div class="bg-layer"></div><span>QWEN CHAT</span></button>
-            <button class="btn purple" data-category="io" onclick="showGame('Vectaria.io')"><div class="bg-layer"></div><span>Vectaria.io</span></button>
-            <button class="btn orange" data-category="action" onclick="showGame('GTA')"><div class="bg-layer"></div><span>GTA</span></button>
-            <button class="btn pink" data-category="classic" onclick="showGame('Snake')"><div class="bg-layer"></div><span>Snake</span></button>
-            <button class="btn brown" data-category="casual" onclick="showGame('Monkey Mart')"><div class="bg-layer"></div><span>Monkey Mart</span></button>
-            <button class="btn orange" data-category="casual" onclick="showGame('myinstants')"><div class="bg-layer"></div><span>myinstants</span></button>
-            <button class="btn orange" data-category="sports" onclick="showGame('2 Player Games')"><div class="bg-layer"></div><span>Football Legends</span></button>
-            <button class="btn orange" data-category="action" onclick="showGame('Subway Surfers')"><div class="bg-layer"></div><span>Subway Surfers</span></button>
-            <button class="btn teal" data-category="action" onclick="showGame('Granny')"><div class="bg-layer"></div><span>Granny</span></button>
-            <button class="btn teal" data-category="sports" onclick="showGame('SocerRandom')"><div class="bg-layer"></div><span>Soccer Random</span></button>
-            <button class="btn teal" data-category="sports" onclick="showGame('BasketRandom')"><div class="bg-layer"></div><span>Basket Random</span></button>
-            <button class="btn teal" data-category="action" onclick="showGame('GooberDash')"><div class="bg-layer"></div><span>Goober Dash</span></button>
-            <button class="btn teal" data-category="casual" onclick="showGame('Build')"><div class="bg-layer"></div><span>BuildNow.GG</span></button>
-            <button class="btn teal" data-category="casual" onclick="showGame('Dog')"><div class="bg-layer"></div><span>Dog Miner 2</span></button>
-            <button class="btn teal" data-category="io" onclick="showGame('Territorial')"><div class="bg-layer"></div><span>Territorial.io</span></button>
-            <button class="btn teal" data-category="casual" onclick="showGame('Stick')"><div class="bg-layer"></div><span>Stick Man Hook</span></button>
-            <button class="btn teal" data-category="casual" onclick="showGame('Gartic')"><div class="bg-layer"></div><span>Gartic Phone</span></button>
-            <button class="btn teal" data-category="tools" onclick="showGame('Play')"><div class="bg-layer"></div><span>PlaylistSound</span></button>
-            <button class="btn teal" data-category="other" onclick="showGame('Proximos Juegos')"><div class="bg-layer"></div><span>Proximos Juegos</span></button>
-        </nav>
-    </section>
-    <div id="game-container">
-        <div id="iframeContainer"></div>
-        <div id="control-buttons">
-            <button onclick="toggleFullscreen()"><div class="bg-layer"></div><span>Fullscreen</span></button>
-            <button onclick="exitGame()"><div class="bg-layer"></div><span>Exit</span></button>
-        </div>
-    </div>
-    <div id="backToTop">↑</div>
-    <footer>
-        <p>© 2025 Maths Support - Educational Gaming</p>
-    </footer>
-    <script>
-        const gameUrls = {
-            '1v1': 'https://1v1.lol',
-            'slither': 'https://slither.io/',
-            'krunker': 'https://krunker.io/?game=FRA:rjfzp',
-            'Shell Shockers': 'https://kevin.games/shellshock-io',
-            'Agar.io': 'https://smashkarts.io/',
-            'ZombsRoyale': 'https://zombsroyale.io',
-            'Paper.io': 'https://openfront.io',
-            'SuperHex.io': 'https://superhex.io',
-            'Pacman': 'https://freepacman.org/',
-            'Tetris': 'https://rocketbotroyale2.winterpixel.io/',
-            'Vectaria.io': 'https://vectaria.io/',
-            'GTA': 'https://html5.gamedistribution.com/0db7851406a542f1a82d4000d1410d00',
-            'Snake': 'https://littlebigsnake.com',
-            'myinstants': 'https://myinstants.com',
-            '2 Player Games': 'https://html5.gamedistribution.com/ecd138ae69cf4e92b5f5cdd328b6b62e/',
-            'Subway Surfers': 'https://webglmath.online',
-            'Proximos Juegos': 'https://docs.google.com/forms/d/e/1FAIpQLSca0M7eMosYMhJCjllf7rofHe0VK9qKkAV3OaQusgj15wzxGA/viewform?embedded=true',
-            'Monkey Mart': 'https://gameshaxor.github.io/MonkeyMart/',
-            'Granny': 'https://html5.gamedistribution.com/ec2e7f9b7a9f441b92f19100627d94cc/',
-            'SocerRandom': 'https://html5.gamedistribution.com/308d826f20034d7b972f25258c8d0a44/',
-            'BasketRandom': 'https://html5.gamedistribution.com/bf1268dccb5d43e7970bb3edaa54afc8/',
-            'GooberDash': 'https://gooberdash.winterpixel.io/',
-            'Build': 'https://gnhustgames.github.io/buildnowgg/',
-            'Dog': 'https://dogminer2.github.io/',
-            'Territorial': 'https://territorial.io',
-            'Stick': 'https://1games.io/stickman-hook',
-            'Gartic': 'https://garticphone.com',
-            'Play': 'https://playlistsound.com',
-            'Exam': 'https://chat.qwen.ai/',
-        };
-
-        function showGame(gameId) {
-            const gameContainer = document.getElementById('game-container');
-            const iframeContainer = document.getElementById('iframeContainer');
-            const gameButtons = document.getElementById('game-buttons');
-            const logoContainer = document.getElementById('logo-container');
-            const categories = document.querySelector('.categories');
-            const searchContainer = document.querySelector('.search-container');
-            const loader = document.getElementById('loader');
-
-            loader.style.display = 'block';
-
-            const gameUrl = gameUrls[gameId];
-            if (!gameUrl) {
-                console.error(`URL for game "${gameId}" not found`);
-                alert(`Game URL for "${gameId}" is missing.`);
-                loader.style.display = 'none';
-                return;
-            }
-
-            const iframe = document.createElement('iframe');
-            iframe.src = gameUrl;
-            iframe.style.width = '100%';
-            iframe.style.height = '75vh';
-            iframe.style.border = 'none';
-            iframe.style.borderRadius = '12px';
-            iframe.setAttribute('allow', 'fullscreen; autoplay; camera; microphone; clipboard-read; clipboard-write');
-            iframe.setAttribute('allowfullscreen', '');
-            iframe.setAttribute('scrolling', 'no');
-
-            iframeContainer.innerHTML = '';
-            iframeContainer.appendChild(iframe);
-
-            gameContainer.style.display = 'block';
-            gameButtons.style.display = 'none';
-            categories.style.display = 'none';
-            searchContainer.style.display = 'none';
-            logoContainer.style.opacity = '0.3';
-
-            iframe.onload = function() {
-                loader.style.display = 'none';
+        
+        // Maths Support Gaming Platform functionality
+        function initializeMathsSupport() {
+            const gameUrls = {
+                '1v1': 'https://1v1.lol',
+                'slither': 'https://slither.io/',
+                'krunker': 'https://krunker.io/?game=FRA:rjfzp',
+                'Shell Shockers': 'https://kevin.games/shellshock-io',
+                'Agar.io': 'https://smashkarts.io/',
+                'ZombsRoyale': 'https://zombsroyale.io',
+                'Paper.io': 'https://openfront.io',
+                'SuperHex.io': 'https://superhex.io',
+                'Pacman': 'https://freepacman.org/',
+                'Tetris': 'https://rocketbotroyale2.winterpixel.io/',
+                'Vectaria.io': 'https://vectaria.io/',
+                'GTA': 'https://html5.gamedistribution.com/0db7851406a542f1a82d4000d1410d00',
+                'Snake': 'https://littlebigsnake.com',
+                'myinstants': 'https://myinstants.com',
+                '2 Player Games': 'https://html5.gamedistribution.com/ecd138ae69cf4e92b5f5cdd328b6b62e/',
+                'Subway Surfers': 'https://webglmath.online',
+                'Proximos Juegos': 'https://docs.google.com/forms/d/e/1FAIpQLSca0M7eMosYMhJCjllf7rofHe0VK9qKkAV3OaQusgj15wzxGA/viewform?embedded=true',
+                'Monkey Mart': 'https://gameshaxor.github.io/MonkeyMart/',
+                'Granny': 'https://html5.gamedistribution.com/ec2e7f9b7a9f441b92f19100627d94cc/',
+                'SocerRandom': 'https://html5.gamedistribution.com/308d826f20034d7b972f25258c8d0a44/',
+                'BasketRandom': 'https://html5.gamedistribution.com/bf1268dccb5d43e7970bb3edaa54afc8/',
+                'GooberDash': 'https://gooberdash.winterpixel.io/',
+                'Build': 'https://gnhustgames.github.io/buildnowgg/',
+                'Dog': 'https://dogminer2.github.io/',
+                'Territorial': 'https://territorial.io',
+                'Stick': 'https://1games.io/stickman-hook',
+                'Gartic': 'https://garticphone.com',
+                'Play': 'https://playlistsound.com',
+                'Exam': 'https://chat.qwen.ai/',
             };
-
-            setTimeout(function() {
-                loader.style.display = 'none';
-            }, 5000);
-        }
-
-        function exitGame() {
-            const gameContainer = document.getElementById('game-container');
-            const gameButtons = document.getElementById('game-buttons');
-            const logoContainer = document.getElementById('logo-container');
-            const categories = document.querySelector('.categories');
-            const searchContainer = document.querySelector('.search-container');
-
-            gameContainer.style.display = 'none';
-            gameButtons.style.display = 'grid';
-            categories.style.display = 'flex';
-            searchContainer.style.display = 'block';
-            logoContainer.style.opacity = '1';
-
-            document.getElementById('iframeContainer').innerHTML = '';
-        }
-
-        function toggleFullscreen() {
-            const iframe = document.querySelector('#iframeContainer iframe');
-            if (!iframe) return;
-
-            try {
-                if (iframe.requestFullscreen) {
-                    iframe.requestFullscreen();
-                } else if (iframe.mozRequestFullScreen) {
-                    iframe.mozRequestFullScreen();
-                } else if (iframe.webkitRequestFullscreen) {
-                    iframe.webkitRequestFullscreen();
-                } else if (iframe.msRequestFullscreen) {
-                    iframe.msRequestFullscreen();
-                }
-            } catch (e) {
-                console.error("Fullscreen error:", e);
-                alert("Fullscreen may not be available for this game");
-            }
-        }
-
-        // Search functionality
-        document.getElementById('search-input').addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
-            const buttons = document.querySelectorAll('#game-buttons button');
-           
-            buttons.forEach(button => {
-                const gameName = button.textContent.toLowerCase();
-                if (gameName.includes(searchTerm)) {
-                    button.style.display = 'flex';
-                } else {
-                    button.style.display = 'none';
-                }
+            
+            const gameButtonsContainer = document.getElementById('game-buttons');
+            gameButtonsContainer.innerHTML = '';
+            
+            // Create game buttons
+            Object.keys(gameUrls).forEach((gameName, index) => {
+                const button = document.createElement('button');
+                button.innerHTML = `<div class="bg-layer"></div><span>${gameName}</span>`;
+                button.setAttribute('data-category', 'action'); // Default category
+                button.addEventListener('click', () => showGame(gameName, gameUrls[gameName]));
+                gameButtonsContainer.appendChild(button);
             });
-        });
-
-        // Category filtering
-        document.querySelectorAll('.category-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-               
-                const category = this.getAttribute('data-category');
+            
+            // Game search functionality
+            document.getElementById('game-search-input').addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
                 const buttons = document.querySelectorAll('#game-buttons button');
                
                 buttons.forEach(button => {
-                    if (category === 'all' || button.getAttribute('data-category') === category) {
+                    const gameName = button.textContent.toLowerCase();
+                    if (gameName.includes(searchTerm)) {
                         button.style.display = 'flex';
                     } else {
                         button.style.display = 'none';
                     }
                 });
             });
-        });
-
-        // Back to top functionality
-        const backToTopButton = document.getElementById('backToTop');
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.add('visible');
-            } else {
-                backToTopButton.classList.remove('visible');
-            }
-        });
-
-        backToTopButton.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Voiceflow chat widget
-        (function(d, t) {
-            var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-            v.onload = function() {
-                window.voiceflow.chat.load({
-                    verify: { projectID: '679e6a10b581cc269ec450eb' },
-                    url: 'https://general-runtime.voiceflow.com',
-                    versionID: 'production'
+            
+            // Category filtering
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                   
+                    const category = this.getAttribute('data-category');
+                    const buttons = document.querySelectorAll('#game-buttons button');
+                   
+                    buttons.forEach(button => {
+                        if (category === 'all' || button.getAttribute('data-category') === category) {
+                            button.style.display = 'flex';
+                        } else {
+                            button.style.display = 'none';
+                        }
+                    });
                 });
+            });
+            
+            // Back to top functionality
+            const backToTopButton = document.getElementById('backToTop');
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+        
+        function showGame(gameId, gameUrl) {
+            const gameContainer = document.getElementById('game-container');
+            const iframeContainer = document.getElementById('iframeContainer');
+            const gameButtons = document.getElementById('game-buttons');
+            const logoContainer = document.getElementById('logo-container');
+            const categories = document.querySelector('.categories');
+            const searchContainer = document.querySelector('.maths-support-search');
+            const loader = document.getElementById('loader');
+            
+            if (!gameUrl) {
+                console.error(`URL for game "${gameId}" not found`);
+                alert(`Game URL for "${gameId}" is missing.`);
+                return;
             }
-            v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";  
-            v.type = "text/javascript";
-            s.parentNode.insertBefore(v, s);
-        })(document, 'script');
-    </script>
-</body>
-</html>
-                `;
-                
-                // Re-initialize the gaming platform scripts
-                setTimeout(() => {
-                    // Re-run the gaming platform initialization
-                    const script = document.createElement('script');
-                    script.textContent = `
-                        // Re-initialize the gaming platform
-                        console.log("Maths Support gaming platform loaded");
-                    `;
-                    document.body.appendChild(script);
-                }, 100);
-            } else {
-                // Regular search functionality
-                alert('Searching for: ' + searchTerm);
-                // In a real implementation, you would filter content based on the search term
+            
+            loader.style.display = 'block';
+            
+            const iframe = document.createElement('iframe');
+            iframe.src = gameUrl;
+            iframe.setAttribute('allow', 'fullscreen; autoplay; camera; microphone; clipboard-read; clipboard-write');
+            iframe.setAttribute('allowfullscreen', '');
+            iframe.setAttribute('scrolling', 'no');
+            
+            iframeContainer.innerHTML = '';
+            iframeContainer.appendChild(iframe);
+            
+            gameContainer.style.display = 'block';
+            gameButtons.style.display = 'none';
+            categories.style.display = 'none';
+            searchContainer.style.display = 'none';
+            logoContainer.style.opacity = '0.3';
+            
+            iframe.onload = function() {
+                loader.style.display = 'none';
+            };
+            
+            setTimeout(function() {
+                loader.style.display = 'none';
+            }, 5000);
+        }
+        
+        function exitGame() {
+            const gameContainer = document.getElementById('game-container');
+            const gameButtons = document.getElementById('game-buttons');
+            const logoContainer = document.getElementById('logo-container');
+            const categories = document.querySelector('.categories');
+            const searchContainer = document.querySelector('.maths-support-search');
+            
+            gameContainer.style.display = 'none';
+            gameButtons.style.display = 'grid';
+            categories.style.display = 'flex';
+            searchContainer.style.display = 'block';
+            logoContainer.style.opacity = '1';
+            
+            document.getElementById('iframeContainer').innerHTML = '';
+        }
+        
+        function toggleFullscreen() {
+            const iframe = document.querySelector('#iframeContainer iframe');
+            if (!iframe) return;
+            
+            try {
+                if (iframe.requestFullscreen) {
+                    iframe.requestFullscreen();
+                } else if (iframe.mozRequestFullScreen) {
+                    iframe.mozRequestFullScreen();
+                } else if (iframe.webkitRequestFullscreen) {
+                    iframe.webkitRequestfullscreen();
+                } else if (iframe.msRequestFullscreen) {
+                    iframe.msRequestFullscreen();
+                }
+            } catch (e) {
+                console.error("Fullscreen error:", e);
+                alert("Fullscreen may not be available for this game");
             }
         }
     </script>
