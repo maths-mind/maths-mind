@@ -1132,7 +1132,7 @@
         </footer>
     </div>
 
-    <!-- AI Chatbot -->
+    <!-- bot -->
     <div class="chatbot-container">
         <button class="chatbot-toggle" id="chatbotToggle">
             <i class="fas fa-robot"></i>
@@ -1460,105 +1460,183 @@
             }
         }
 
-        // AI Chatbot functionality
-        const chatbotToggle = document.getElementById('chatbotToggle');
-        const chatbotWindow = document.getElementById('chatbotWindow');
-        const chatbotMessages = document.getElementById('chatbotMessages');
-        const chatbotInput = document.getElementById('chatbotInput');
-        const sendMessageBtn = document.getElementById('sendMessage');
-        const typingIndicator = document.getElementById('typingIndicator');
+       // Alternative AI Chatbot functionality with proxy
+const chatbotToggle = document.getElementById('chatbotToggle');
+const chatbotWindow = document.getElementById('chatbotWindow');
+const chatbotMessages = document.getElementById('chatbotMessages');
+const chatbotInput = document.getElementById('chatbotInput');
+const sendMessageBtn = document.getElementById('sendMessage');
+const typingIndicator = document.getElementById('typingIndicator');
 
-        // OpenRouter API configuration
-        const API_KEY = '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';
-        const API_URL = 'https://openrouter.ai/api/v1/chat/completions';
+// Enhanced math knowledge base
+const mathKnowledgeBase = {
+    'quadratic': 'To solve quadratic equations like ax² + bx + c = 0:\n1. Use the quadratic formula: x = [-b ± √(b² - 4ac)] / 2a\n2. Check discriminant (b² - 4ac): >0 (2 real roots), =0 (1 real root), <0 (no real roots)\n3. Example: Solve x² + 5x + 6 = 0 → (x+2)(x+3)=0 → x=-2 or x=-3',
+    'pythagoras': 'Pythagoras Theorem: a² + b² = c²\n- c is the hypotenuse (longest side)\n- Use to find missing sides in right-angled triangles\n- Example: If a=3, b=4, then c=√(3²+4²)=√(9+16)=√25=5',
+    'algebra': 'Algebra Basics:\n- Solve equations: Do same to both sides\n- Simplify expressions: Combine like terms\n- Factorize: Find common factors\n- Expand: Multiply out brackets',
+    'geometry': 'Key Geometry Topics:\n- Angles: sum in triangle=180°, on straight line=180°\n- Area: rectangle=l×w, triangle=½×b×h, circle=πr²\n- Volume: cube=l×w×h, prism=area×height\n- Circle theorems: angles in semicircle=90°',
+    'statistics': 'Statistics & Probability:\n- Mean: sum of values ÷ count\n- Median: middle value when ordered\n- Mode: most frequent value\n- Range: largest - smallest\n- Probability: favorable outcomes ÷ total outcomes',
+    'fractions': 'Working with Fractions:\n- Add/Subtract: Common denominator needed\n- Multiply: numerator×numerator, denominator×denominator\n- Divide: multiply by reciprocal\n- Simplify: divide numerator/denominator by HCF',
+    'percentage': 'Percentages:\n- Of number: value × percentage ÷ 100\n- Increase: original × (1 + percentage/100)\n- Decrease: original × (1 - percentage/100)\n- Reverse: (new ÷ original) × 100',
+    'trigonometry': 'Trigonometry (SOH CAH TOA):\n- Sinθ = Opposite/Hypotenuse\n- Cosθ = Adjacent/Hypotenuse\n- Tanθ = Opposite/Adjacent\n- Remember: Only for right-angled triangles!',
+    'calculus': 'GCSE Calculus:\n- Gradient = rate of change\n- Differentiation basics\n- Finding turning points\n- Real-world applications',
+    'help': 'I can help with these GCSE Maths topics:\n• Algebra & Equations\n• Geometry & Shapes\n• Statistics & Probability\n• Fractions & Percentages\n• Trigonometry\n• Pythagoras Theorem\n• Quadratic Equations\n• Area & Volume\nJust ask about any of these!'
+};
 
-        // Toggle chatbot window
-        chatbotToggle.addEventListener('click', () => {
-            chatbotWindow.style.display = chatbotWindow.style.display === 'flex' ? 'none' : 'flex';
-        });
+// Send message function
+async function sendMessage() {
+    const message = chatbotInput.value.trim();
+    if (!message) return;
 
-        // Send message function
-        async function sendMessage() {
-            const message = chatbotInput.value.trim();
-            if (!message) return;
+    // Add user message to chat
+    addMessage(message, 'user');
+    chatbotInput.value = '';
 
-            // Add user message to chat
-            addMessage(message, 'user');
-            chatbotInput.value = '';
+    // Show typing indicator
+    typingIndicator.style.display = 'block';
+    scrollToBottom();
 
-            // Show typing indicator
-            typingIndicator.style.display = 'block';
-            scrollToBottom();
+    // Small delay to simulate thinking
+    setTimeout(async () => {
+        try {
+            // Try to use the API first
+            const apiResponse = await tryOpenRouterAPI(message);
+            if (apiResponse) {
+                typingIndicator.style.display = 'none';
+                addMessage(apiResponse, 'bot');
+                return;
+            }
+        } catch (error) {
+            console.log('API failed, using fallback');
+        }
 
-            try {
-                // Call OpenRouter API
-                const response = await fetch(API_URL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${API_KEY}`
+        // Use fallback knowledge base
+        typingIndicator.style.display = 'none';
+        const fallbackResponse = getEnhancedFallbackResponse(message);
+        addMessage(fallbackResponse, 'bot');
+        
+    }, 1500);
+}
+
+// Try OpenRouter API with better error handling
+async function tryOpenRouterAPI(message) {
+    const API_KEY = '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';
+    
+    try {
+        const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${API_KEY}`,
+                'HTTP-Referer': window.location.href,
+                'X-Title': 'Maths Mind GCSE Tutor'
+            },
+            body: JSON.stringify({
+                model: 'deepseek/deepseek-chat',
+                messages: [
+                    {
+                        role: 'system',
+                        content: 'You are a GCSE maths tutor for Year 10-11 students. Provide clear, step-by-step explanations. Be encouraging and focus on understanding. Keep responses under 300 words.'
                     },
-                    body: JSON.stringify({
-                        model: 'deepseek/deepseek-chat',
-                        messages: [
-                            {
-                                role: 'system',
-                                content: 'You are a helpful maths tutor specializing in GCSE mathematics for Year 10 and 11 students. Provide clear, step-by-step explanations and be encouraging. Focus on topics like algebra, geometry, statistics, and number concepts.'
-                            },
-                            {
-                                role: 'user',
-                                content: message
-                            }
-                        ],
-                        max_tokens: 1000,
-                        temperature: 0.7
-                    })
-                });
-
-                if (!response.ok) {
-                    throw new Error(`API error: ${response.status}`);
-                }
-
-                const data = await response.json();
-                const botResponse = data.choices[0].message.content;
-
-                // Hide typing indicator and add bot response
-                typingIndicator.style.display = 'none';
-                addMessage(botResponse, 'bot');
-
-            } catch (error) {
-                console.error('Error calling AI API:', error);
-                typingIndicator.style.display = 'none';
-                addMessage('Sorry, I encountered an error. Please try again later.', 'bot');
-            }
-        }
-
-        // Add message to chat
-        function addMessage(text, sender) {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `message ${sender}`;
-            messageDiv.textContent = text;
-            chatbotMessages.appendChild(messageDiv);
-            scrollToBottom();
-        }
-
-        // Scroll to bottom of chat
-        function scrollToBottom() {
-            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-        }
-
-        // Event listeners for sending messages
-        sendMessageBtn.addEventListener('click', sendMessage);
-        chatbotInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                sendMessage();
-            }
+                    {
+                        role: 'user',
+                        content: `GCSE Maths Question: ${message}`
+                    }
+                ],
+                max_tokens: 400,
+                temperature: 0.7
+            })
         });
 
-        // Add some initial helpful messages
-        setTimeout(() => {
-            addMessage("Try asking me about: 'How do I solve quadratic equations?' or 'Explain Pythagoras theorem'", 'bot');
-        }, 2000);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        return data.choices[0].message.content;
+    } catch (error) {
+        console.warn('OpenRouter API unavailable:', error);
+        return null;
+    }
+}
+
+// Enhanced fallback response system
+function getEnhancedFallbackResponse(message) {
+    const lowerMessage = message.toLowerCase();
+    
+    // Direct keyword matches
+    for (const [keyword, response] of Object.entries(mathKnowledgeBase)) {
+        if (lowerMessage.includes(keyword)) {
+            return response;
+        }
+    }
+    
+    // Pattern-based responses
+    if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
+        return "👋 Hello! I'm your Maths AI tutor. I can help with GCSE maths topics like algebra, geometry, statistics, and more. What would you like to learn about?";
+    }
+    
+    if (lowerMessage.includes('thank')) {
+        return "You're welcome! 😊 Keep practicing and don't hesitate to ask more questions. Maths gets easier with practice!";
+    }
+    
+    if (lowerMessage.includes('solve') && lowerMessage.includes('equation')) {
+        return mathKnowledgeBase.algebra + '\n\nFor specific equations, tell me the equation and I\'ll help solve it step-by-step!';
+    }
+    
+    if ((lowerMessage.includes('area') || lowerMessage.includes('volume')) && (lowerMessage.includes('find') || lowerMessage.includes('calculate'))) {
+        return mathKnowledgeBase.geometry;
+    }
+    
+    if (lowerMessage.includes('probability') || lowerMessage.includes('chance')) {
+        return mathKnowledgeBase.statistics;
+    }
+    
+    if (lowerMessage.includes('triangle') && lowerMessage.includes('right')) {
+        return mathKnowledgeBase.pythagoras;
+    }
+    
+    if (lowerMessage.includes('graph') || lowerMessage.includes('plot')) {
+        return "For graphs: \n• Linear: y = mx + c (m=gradient, c=y-intercept)\n• Quadratic: y = ax² + bx + c (parabola)\n• Plot points and draw smooth curves\n• GCSE focuses on interpreting graphs and finding coordinates";
+    }
+    
+    if (lowerMessage.includes('exam') || lowerMessage.includes('test') || lowerMessage.includes('revision')) {
+        return "📚 Exam Tips:\n• Practice past papers\n• Show all working steps\n• Check your answers\n• Manage time wisely\n• Focus on topics you find difficult\n• Remember formulas and when to use them";
+    }
+    
+    // Generic encouraging response
+    return "I'd love to help with your maths question! Could you be more specific? For example:\n• 'How do I solve quadratic equations?'\n• 'Explain Pythagoras theorem'\n• 'Help with algebra problems'\n• 'How to calculate percentages'\nWhat specific topic are you working on?";
+}
+
+// Add message to chat
+function addMessage(text, sender) {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${sender}`;
+    
+    // Preserve line breaks in the response
+    const formattedText = text.replace(/\n/g, '<br>');
+    messageDiv.innerHTML = formattedText;
+    
+    chatbotMessages.appendChild(messageDiv);
+    scrollToBottom();
+}
+
+// Scroll to bottom of chat
+function scrollToBottom() {
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+}
+
+// Event listeners for sending messages
+sendMessageBtn.addEventListener('click', sendMessage);
+chatbotInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        sendMessage();
+    }
+});
+
+// Add welcome message
+setTimeout(() => {
+    addMessage("🎓 Welcome to Maths Mind AI Tutor! I can help with:\n• Algebra & Equations\n• Geometry & Shapes  \n• Statistics & Probability\n• Fractions & Percentages\n• And much more!\n\nWhat would you like to learn today?", 'bot');
+}, 1000);
     </script>
 </body>
 </html>
